@@ -1,9 +1,11 @@
 from django.db import models
-
 from mptt.models import MPTTModel
 
+from mountain_pass.resources import PerevalStatuses
+from users.models import User
 
-class PerevalArea(MPTTModel):
+
+class Area(MPTTModel):
     """ Область в которой находится перевал
     поле parent реализует древовидную иерархию хранения данных """
 
@@ -16,8 +18,8 @@ class PerevalArea(MPTTModel):
         order_insertion_by = ['title']
 
     class Meta:
-        verbose_name = 'Pereval Area'
-        verbose_name_plural = 'Perevals Areas'
+        verbose_name = 'Area'
+        verbose_name_plural = 'Areas'
 
     def __str__(self):
         return self.title
@@ -38,7 +40,7 @@ class Cords(models.Model):
         return f'{self.longitude}, {self.latitude}, {self.height}'
 
 
-class Pereval(models.Model):
+class MountainPass(models.Model):
     """ Информация которую содержит перевал включает внешние ключи на
     модели User, PerevalAreas, Cords, Status """
 
@@ -49,7 +51,7 @@ class Pereval(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.SmallIntegerField(default=PerevalStatuses.new, choices=PerevalStatuses.choices)
-    pereval_area = models.ForeignKey(PerevalArea, on_delete=models.CASCADE)
+    pereval_area = models.ForeignKey(Area, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     cords = models.ForeignKey(Cords, on_delete=models.CASCADE)
     winter = models.CharField(max_length=30, verbose_name='Зима', blank=True)
@@ -63,9 +65,22 @@ class Pereval(models.Model):
 
     class Meta:
         ordering = ['-added_at']
-        verbose_name = 'Pereval Added'
-        verbose_name_plural = 'Perevals Added'
+        verbose_name = 'Mountain Pass'
+        verbose_name_plural = 'Mountain Passes'
 
     def __str__(self):
         return f'{self.title}, {self.status}'
 
+
+class PerevalPhoto(models.Model):
+    """ Фото перевала """
+
+    img = models.ImageField(upload_to='media', blank=True)
+    mountain_pass = models.ForeignKey(MountainPass, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.mountain_pass
+
+
+class SprActivitiesTypes(models.Model):
+    title = models.CharField(max_length=55)
