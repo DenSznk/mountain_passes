@@ -42,7 +42,7 @@ class Cords(models.Model):
 
 class MountainPass(models.Model):
     """ Информация которую содержит перевал включает внешние ключи на
-    модели User, PerevalAreas, Cords, Status """
+    модели User, Area, Cords, Status """
 
     beauty_title = models.CharField(max_length=100, blank=True, null=True)
     other_titles = models.CharField(max_length=100, blank=True, null=True)
