@@ -136,4 +136,8 @@ MPTT_ADMIN_LEVEL_INDENT = 20
 
 # rest framework
 
-
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+   ),
+}

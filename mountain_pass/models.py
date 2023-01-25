@@ -1,7 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel
 
-from mountain_pass.resources import PerevalStatuses
+from mountain_pass.resources import MountainPassStatuses
 from users.models import User
 
 
@@ -50,8 +50,8 @@ class MountainPass(models.Model):
     connect = models.CharField(max_length=100, default='Нет информации')
     added_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.SmallIntegerField(default=PerevalStatuses.new, choices=PerevalStatuses.choices)
-    pereval_area = models.ForeignKey(Area, on_delete=models.CASCADE)
+    status = models.SmallIntegerField(default=MountainPassStatuses.new, choices=MountainPassStatuses.choices)
+    area = models.ForeignKey(Area, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     cords = models.ForeignKey(Cords, on_delete=models.CASCADE)
     winter = models.CharField(max_length=30, verbose_name='Зима', blank=True)
@@ -61,7 +61,7 @@ class MountainPass(models.Model):
 
     @property
     def is_new(self):
-        return self.status == PerevalStatuses.new
+        return self.status == MountainPassStatuses.new
 
     class Meta:
         ordering = ['-added_at']
