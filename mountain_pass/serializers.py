@@ -25,7 +25,7 @@ class CordsSerializer(serializers.ModelSerializer):
                   ]
 
 
-class Serializer(serializers.ModelSerializer):
+class MountainPassSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     pereval_area = serializers.PrimaryKeyRelatedField(queryset=Area.objects.all())
     cords = serializers.PrimaryKeyRelatedField(queryset=Cords.objects.all(),
@@ -91,7 +91,7 @@ class MountainPassUpdateSerializer(serializers.ModelSerializer):
         }
 
 
-class PerevalPhotoSerializer(serializers.ModelSerializer):
+class PhotoSerializer(serializers.ModelSerializer):
     pereval = serializers.PrimaryKeyRelatedField(queryset=MountainPass.objects.all())
 
     class Meta:

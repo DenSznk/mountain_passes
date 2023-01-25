@@ -1,6 +1,8 @@
 from django.urls import path
 
-from mountain_pass.views import UserDetailAPI, RegisterUserAPIView
+from users.views import UserDetailAPI, RegisterUserAPIView
+
+app_name = 'users'
 
 urlpatterns = [
     path("get-details", UserDetailAPI.as_view()),
