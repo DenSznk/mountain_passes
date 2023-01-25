@@ -72,7 +72,7 @@ class MountainPass(models.Model):
         return f'{self.title}, {self.status}'
 
 
-class PerevalPhoto(models.Model):
+class Photo(models.Model):
     """ Фото перевала """
 
     img = models.ImageField(upload_to='media', blank=True)

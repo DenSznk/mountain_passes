@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
+    'mptt',
 
     'users',
     'mountain_pass',
@@ -131,3 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django-mptt
 MPTT_ADMIN_LEVEL_INDENT = 20
+
+# rest framework
+
+
