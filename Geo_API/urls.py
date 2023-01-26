@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken import views
 
+from .yasg import urlpatterns as doc_urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-user/', include('users.urls')),
@@ -24,3 +26,4 @@ urlpatterns = [
     path('api-token-auth', views.obtain_auth_token),
 ]
 
+urlpatterns += doc_urls
