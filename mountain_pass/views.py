@@ -4,8 +4,9 @@ from rest_framework.viewsets import ModelViewSet
 
 from . import serializers
 from .models import (MountainPass, Area, Cords, Photo, )
-from .serializers import (AreaSerializer,
-                          MountainPassSerializer, CordsSerializer, PhotoSerializer, MountainPassUpdateSerializer
+from .serializers import (AreaSerializer, CordsSerializer,
+                          MountainPassSerializer,
+                          MountainPassUpdateSerializer, PhotoSerializer
                           )
 
 
