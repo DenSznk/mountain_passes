@@ -1,8 +1,8 @@
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import UpdateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
+from . import serializers
 from .models import (MountainPass, Area, Cords, Photo, )
 from .serializers import (AreaSerializer,
                           MountainPassSerializer, CordsSerializer, PhotoSerializer, MountainPassUpdateSerializer
@@ -17,8 +17,12 @@ class AreaViewSet(ModelViewSet):
 
 class MountainPassViewSet(ModelViewSet):
     queryset = MountainPass.objects.all().prefetch_related('user', 'area', 'cords')
-    serializer_class = MountainPassSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.action == 'update' or self.action == 'partial_update':
+            return serializers.MountainPassUpdateSerializer
+        return serializers.MountainPassSerializer
 
 
 class PhotoViewSet(ModelViewSet):
@@ -42,9 +46,7 @@ class MountainPassUpdate(UpdateAPIView):
 class MountainPassListView(ListAPIView):
     serializer_class = MountainPassSerializer
     permission_classes = [IsAuthenticated]
-    # filter_backends = [DjangoFilterBackend]
-    # filter_fields = ['user']
 
     def get_queryset(self):
-        user_email = self.kwargs['email']
-        return MountainPass.objects.filter(user__email=user_email)
+        email = self.kwargs['email']
+        return MountainPass.objects.filter(user__email=email)

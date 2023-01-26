@@ -45,6 +45,7 @@ class MountainPassSerializer(serializers.ModelSerializer):
                   'summer',
                   'autumn',
                   'spring',
+                  'added_at',
                   ]
         extra_kwargs = {
             'added_at': {
@@ -97,6 +98,7 @@ class MountainPassUpdateSerializer(serializers.ModelSerializer):
                   'summer',
                   'autumn',
                   'spring',
+                  'added_at',
                   ]
         extra_kwargs = {
             'added_at': {

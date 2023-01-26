@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_filters',
     'mptt',
+    'drf_yasg',
 
     'users',
     'mountain_pass',
