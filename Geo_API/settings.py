@@ -11,9 +11,22 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
+
+env = environ.Env(
+    DEBUG=bool,
+    SECRET_KEY=str,
+    DATABASE_NAME=str,
+    DATABASE_PASSWORD=str,
+    DATABASE_HOST=str,
+    DATABASE_PORT=int,
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(BASE_DIR / '.env')
 
 AUTH_USER_MODEL = 'users.User'
 
@@ -21,10 +34,10 @@ AUTH_USER_MODEL = 'users.User'
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vvu2l^)-wjl=t0x6)an4uc07#@@e46v5n@co5mcj7v^!1t=vjc'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -86,17 +99,13 @@ WSGI_APPLICATION = 'Geo_API.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "mountain_db",
-        "USER": "mountain_user",
-        "PASSWORD": "pent1ums",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "NAME": env('DATABASE_NAME'),
+        "USER": env('DATABASE_USER'),
+        "PASSWORD": env('DATABASE_PASSWORD'),
+        "HOST": env('DATABASE_HOST'),
+        "PORT": env('DATABASE_PORT'),
     }
 }
-
-
-
-
 
 # DATABASES = {
 #     'default': {
