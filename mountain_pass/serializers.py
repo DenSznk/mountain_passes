@@ -28,6 +28,51 @@ class CordsSerializer(serializers.ModelSerializer):
 class MountainPassSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     area = serializers.PrimaryKeyRelatedField(queryset=Area.objects.all())
+    cords = serializers.PrimaryKeyRelatedField(queryset=Cords.objects.all())
+
+    class Meta:
+        model = MountainPass
+        fields = ['id',
+                  'beauty_title',
+                  'other_titles',
+                  'title',
+                  'connect',
+                  'area',
+                  'user',
+                  'status',
+                  'cords',
+                  'winter',
+                  'summer',
+                  'autumn',
+                  'spring',
+                  ]
+        extra_kwargs = {
+            'added_at': {
+                'read_only': True,
+            },
+            'status': {
+                'read_only': True,
+            },
+            'updated_at': {
+                'read_only': True,
+            },
+        }
+
+
+class PhotoSerializer(serializers.ModelSerializer):
+    mountain_pass = serializers.PrimaryKeyRelatedField(queryset=MountainPass.objects.all())
+
+    class Meta:
+        model = Photo
+        fields = ['id',
+                  'img',
+                  'mountain_pass',
+                  ]
+
+
+class MountainPassUpdateSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+    area = serializers.PrimaryKeyRelatedField(queryset=Area.objects.all())
     cords = serializers.PrimaryKeyRelatedField(queryset=Cords.objects.all(), )
 
     def validate(self, attrs):
@@ -60,15 +105,7 @@ class MountainPassSerializer(serializers.ModelSerializer):
             'status': {
                 'read_only': True,
             },
+            'updated_at': {
+                'read_only': True,
+            },
         }
-
-
-class PhotoSerializer(serializers.ModelSerializer):
-    mountain_pass = serializers.PrimaryKeyRelatedField(queryset=MountainPass.objects.all())
-
-    class Meta:
-        model = Photo
-        fields = ['id',
-                  'img',
-                  'mountain_pass',
-                  ]

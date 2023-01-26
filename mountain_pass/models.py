@@ -79,7 +79,7 @@ class Photo(models.Model):
     mountain_pass = models.ForeignKey(MountainPass, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.mountain_pass
+        return f'{self.mountain_pass}'
 
 
 class SprActivitiesTypes(models.Model):
