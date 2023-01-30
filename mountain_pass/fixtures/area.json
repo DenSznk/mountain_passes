@@ -1,0 +1,1 @@
+[{"model": "mountain_pass.area", "pk": 1, "fields": {"title": "Test area1", "parent": null, "lft": 1, "rght": 4, "tree_id": 1, "level": 0}}, {"model": "mountain_pass.area", "pk": 2, "fields": {"title": "Test aarea2", "parent": 1, "lft": 2, "rght": 3, "tree_id": 1, "level": 1}}]

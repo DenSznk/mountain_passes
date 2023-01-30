@@ -83,4 +83,5 @@ class Photo(models.Model):
 
 
 class SprActivitiesTypes(models.Model):
+    """ Вид активности """
     title = models.CharField(max_length=55)
