@@ -1,1 +1,62 @@
-[{"model": "mountain_pass.mountainpass", "pk": 1, "fields": {"beauty_title": "Test B_title1", "other_titles": "Test O_title1", "title": "Test Title1", "connect": "No signal", "added_at": "2023-01-30T09:15:59.219Z", "updated_at": "2023-01-30T09:15:59.219Z", "status": 1, "area": 1, "user": 1, "cords": 1, "winter": "A1", "summer": "", "autumn": "", "spring": ""}}, {"model": "mountain_pass.mountainpass", "pk": 2, "fields": {"beauty_title": "Test2 B_title", "other_titles": "Test2 O_title", "title": "Test2 Title", "connect": "no info", "added_at": "2023-01-30T09:18:35.338Z", "updated_at": "2023-01-30T09:18:35.338Z", "status": 1, "area": 2, "user": 2, "cords": 2, "winter": "hello", "summer": "", "autumn": "", "spring": ""}}]
+[
+  {
+    "model": "mountain_pass.mountainpass",
+    "pk": 1,
+    "fields": {
+      "beauty_title": "Test B_title1",
+      "other_titles": "Test O_title1",
+      "title": "Test Title1",
+      "connect": "No signal",
+      "added_at": "2023-01-30T09:15:59.219Z",
+      "updated_at": "2023-01-30T09:15:59.219Z",
+      "status": 1,
+      "area": 1,
+      "user": 1,
+      "cords": 1,
+      "winter": "A1",
+      "summer": null,
+      "autumn": null,
+      "spring": null
+    }
+  },
+  {
+    "model": "mountain_pass.mountainpass",
+    "pk": 2,
+    "fields": {
+      "beauty_title": "Test2 B_title",
+      "other_titles": "Test2 O_title",
+      "title": "Test2 Title",
+      "connect": "no info",
+      "added_at": "2023-01-30T09:18:35.338Z",
+      "updated_at": "2023-01-30T09:18:35.338Z",
+      "status": 1,
+      "area": 2,
+      "user": 2,
+      "cords": 2,
+      "winter": "hello",
+      "summer": null,
+      "autumn": null,
+      "spring": null
+    }
+  },
+  {
+    "model": "mountain_pass.mountainpass",
+    "pk": 3,
+    "fields": {
+      "beauty_title": "Test B_title3",
+      "other_titles": "Test O_title3",
+      "title": "Test Title3",
+      "connect": "No signal",
+      "added_at": "2023-01-30T09:15:59.219Z",
+      "updated_at": "2023-01-30T09:15:59.219Z",
+      "status": 2,
+      "area": 1,
+      "user": 1,
+      "cords": 1,
+      "winter": "A1",
+      "summer": null,
+      "autumn": null,
+      "spring": null
+    }
+  }
+]

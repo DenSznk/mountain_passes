@@ -1,1 +1,20 @@
-[{"model": "mountain_pass.cords", "pk": 1, "fields": {"latitude": 1234.12, "longitude": 1234.12, "height": 1234}}, {"model": "mountain_pass.cords", "pk": 2, "fields": {"latitude": 4321.12, "longitude": 4321.12, "height": 1234}}]
+[
+  {
+    "model": "mountain_pass.cords",
+    "pk": 1,
+    "fields": {
+      "latitude": 1234.12,
+      "longitude": 1234.12,
+      "height": 1234
+    }
+  },
+  {
+    "model": "mountain_pass.cords",
+    "pk": 2,
+    "fields": {
+      "latitude": 4321.12,
+      "longitude": 4321.12,
+      "height": 1234
+    }
+  }
+]

@@ -54,10 +54,10 @@ class MountainPass(models.Model):
     area = models.ForeignKey(Area, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     cords = models.ForeignKey(Cords, on_delete=models.CASCADE)
-    winter = models.CharField(max_length=30, verbose_name='Зима', blank=True)
-    summer = models.CharField(max_length=30, verbose_name='Лето', blank=True)
-    autumn = models.CharField(max_length=30, verbose_name='Осень', blank=True)
-    spring = models.CharField(max_length=30, verbose_name='Весна', blank=True)
+    winter = models.CharField(max_length=30, verbose_name='Зима', blank=True, null=True)
+    summer = models.CharField(max_length=30, verbose_name='Лето', blank=True, null=True)
+    autumn = models.CharField(max_length=30, verbose_name='Осень', blank=True, null=True)
+    spring = models.CharField(max_length=30, verbose_name='Весна', blank=True, null=True)
 
     @property
     def is_new(self):

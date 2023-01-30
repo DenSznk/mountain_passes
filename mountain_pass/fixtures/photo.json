@@ -1,1 +1,18 @@
-[{"model": "mountain_pass.photo", "pk": 1, "fields": {"img": "media/91020E6F-1726-41DB-A719-47EC1102DE7C.png", "mountain_pass": 1}}, {"model": "mountain_pass.photo", "pk": 2, "fields": {"img": "media/11111_3LVM9F2.jpg", "mountain_pass": 2}}]
+[
+  {
+    "model": "mountain_pass.photo",
+    "pk": 1,
+    "fields": {
+      "img": "media/91020E6F-1726-41DB-A719-47EC1102DE7C.png",
+      "mountain_pass": 1
+    }
+  },
+  {
+    "model": "mountain_pass.photo",
+    "pk": 2,
+    "fields": {
+      "img": "media/11111_3LVM9F2.jpg",
+      "mountain_pass": 2
+    }
+  }
+]
