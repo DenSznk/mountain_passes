@@ -12,6 +12,7 @@ class TestSetUp(APITestCase):
     area_data_test = Area.objects.all()
     area_test = Area.objects.get(pk=1)
     area_test_no_parent = Area.objects.get(pk=2)
+    area_test_with_child = Area.objects.get(pk=1)
 
     valid_area_data = {
         'title': 'Test title',
@@ -37,7 +38,7 @@ class TestSetUp(APITestCase):
     # mountain_pass test data
 
     mountain_pass_data_test = MountainPass.objects.all()
-    mountain_pass = MountainPass.objects.get(pk=1)
+    mountain_pass_test = MountainPass.objects.get(pk=1)
 
     valid_mountain_pass_data = {
         "beauty_title": "Test B_title3",
@@ -51,9 +52,9 @@ class TestSetUp(APITestCase):
         "user": 1,
         "cords": 1,
         "winter": "A1",
-        "summer": None,
-        "autumn": None,
-        "spring": None,
+        "summer": '',
+        "autumn": '',
+        "spring": '',
     }
     invalid_mountain_pass_data = {
         "beauty_title": "Test B_title3",
@@ -65,7 +66,7 @@ class TestSetUp(APITestCase):
         "status": 2,
         "area": 1,
         "winter": "A1",
-        "summer": None,
-        "autumn": None,
-        "spring": None,
+        "summer": '',
+        "autumn": '',
+        "spring": '',
     }

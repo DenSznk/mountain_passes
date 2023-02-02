@@ -1,5 +1,6 @@
 from rest_framework import status
 from rest_framework.reverse import reverse
+
 from mountain_pass.models import Area
 from mountain_pass.serializers import AreaSerializer
 from mountain_pass.tests.set_up import TestSetUp
@@ -74,6 +75,19 @@ class AreaAPITestCases(TestSetUp):
                 'pk': self.area_test_no_parent.pk})
         )
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_area_cant_delete_with_child(self):
+        response = self.client.delete(
+            reverse('mountain_pass:area-detail', kwargs={
+                'pk': 1})
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print(response.data)
+        self.assertEqual(
+            response.data,
+            ['Cannot delete object with inherited objects']
+        )
+        self.assertEqual(Area.objects.count(), 2)
 
     def test_area_delete_not_found(self):
         response = self.client.delete(

@@ -24,6 +24,11 @@ class Area(MPTTModel):
     def __str__(self):
         return self.title
 
+    def has_inherited_object(self):
+        return self.child.exists()
+
+
+
 
 class Cords(models.Model):
     """ Координаты перевала """

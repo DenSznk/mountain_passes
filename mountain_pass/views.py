@@ -17,6 +17,11 @@ class AreaViewSet(ModelViewSet):
     queryset = Area.objects.all()
     serializer_class = AreaSerializer
 
+    def perform_destroy(self, instance):
+        if instance.has_inherited_object():
+            raise ValidationError("Cannot delete object with inherited objects")
+        instance.delete()
+
 
 class MountainPassViewSet(ModelViewSet):
     queryset = MountainPass.objects.all().prefetch_related('user', 'area', 'cords')
