@@ -14,6 +14,6 @@ router.register('mountain-pass', MountainPassViewSet)
 router.register('cords', CordsViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
     path('mountain-pass-list/<email>/', MountainPassListView.as_view()),
 ]
+urlpatterns += router.urls
