@@ -1,9 +1,8 @@
 from rest_framework import serializers
 
 from users.models import User
-from .models import (Area, Cords,
-                     MountainPass, Photo,
-                     )
+
+from .models import Area, Cords, MountainPass, Photo
 
 
 class AreaSerializer(serializers.ModelSerializer):

@@ -28,8 +28,6 @@ class Area(MPTTModel):
         return self.child.exists()
 
 
-
-
 class Cords(models.Model):
     """ Координаты перевала """
 

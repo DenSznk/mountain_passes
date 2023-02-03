@@ -1,9 +1,7 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 
-from .models import (MountainPass, Area,
-                     Photo, Cords,
-                     )
+from .models import Area, Cords, MountainPass, Photo
 
 
 class CustomMPTTModelAdmin(MPTTModelAdmin):

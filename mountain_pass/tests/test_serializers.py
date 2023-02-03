@@ -1,9 +1,11 @@
 from django.conf import settings
 from django.test import TestCase
 
-from mountain_pass.models import (Area, Cords, MountainPass, Photo)
-from mountain_pass.serializers import (AreaSerializer, CordsSerializer, MountainPassSerializer, PhotoSerializer,
-                                       MountainPassUpdateSerializer)
+from mountain_pass.models import Area, Cords, MountainPass, Photo
+from mountain_pass.serializers import (AreaSerializer, CordsSerializer,
+                                       MountainPassSerializer,
+                                       MountainPassUpdateSerializer,
+                                       PhotoSerializer)
 
 
 class AreaSerializerTestCase(TestCase):

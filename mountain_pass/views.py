@@ -1,16 +1,12 @@
-from rest_framework import status
-from rest_framework.exceptions import ValidationError, NotFound
-from rest_framework.generics import UpdateAPIView, ListAPIView
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, AllowAny
-from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
+from rest_framework.generics import ListAPIView, UpdateAPIView
 from rest_framework.viewsets import ModelViewSet
 
 from . import serializers
-from .models import (MountainPass, Area, Cords, Photo, )
+from .models import Area, Cords, MountainPass, Photo
 from .serializers import (AreaSerializer, CordsSerializer,
-                          MountainPassSerializer,
-                          MountainPassUpdateSerializer, PhotoSerializer
-                          )
+                          MountainPassSerializer, MountainPassUpdateSerializer,
+                          PhotoSerializer)
 
 
 class AreaViewSet(ModelViewSet):

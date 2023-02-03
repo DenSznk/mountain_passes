@@ -4,7 +4,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from users.serializers import UserSerializer, RegisterSerializer
+from users.serializers import RegisterSerializer, UserSerializer
+
 from .models import User
 
 

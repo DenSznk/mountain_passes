@@ -1,7 +1,6 @@
 from rest_framework import status
 from rest_framework.reverse import reverse
 
-from mountain_pass.models import Photo
 from mountain_pass.serializers import PhotoSerializer
 from mountain_pass.tests.set_up import TestSetUp
 

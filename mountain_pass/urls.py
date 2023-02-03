@@ -1,9 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from rest_framework import routers
 
-from mountain_pass.views import (AreaViewSet, MountainPassViewSet,
-                                 PhotoViewSet, CordsViewSet, MountainPassListView,
-                                 )
+from mountain_pass.views import (AreaViewSet, CordsViewSet,
+                                 MountainPassListView, MountainPassViewSet,
+                                 PhotoViewSet)
 
 app_name = 'mountain_pass'
 
