@@ -11,6 +11,7 @@ python manage.py loaddata fixtures/model_name.json --app app.model_name
 pip install -r requirements.txt
 Для установки секретного ключа и информации для базы данных используйте
 .env_example как пример
+ДОкументация API выполнена с использованием  Swagger и redoc
 
 This project was created based on the Django REST framework
 Implements an API for receiving and sending information about the state of a mountain
