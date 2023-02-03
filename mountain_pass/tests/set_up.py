@@ -1,6 +1,7 @@
+from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
 
-from mountain_pass.models import Area, Cords, MountainPass
+from mountain_pass.models import Area, Cords, MountainPass, Photo
 
 
 class TestSetUp(APITestCase):
@@ -69,4 +70,20 @@ class TestSetUp(APITestCase):
         "summer": '',
         "autumn": '',
         "spring": '',
+    }
+
+    # Photo test data
+    photo_data_test = Photo.objects.all()
+    photo_test = Photo.objects.get(pk=1)
+    photo = SimpleUploadedFile("photo.jpg", b"photo_content", content_type="image/jpeg")
+    data = {
+        'img': photo,
+        'mountain_pass': mountain_pass_test.pk
+    }
+    valid_photo_data = {
+        'img': 'media/91020E6F-1726-41DB-A719-47EC1102DE7C.png',
+        'mountain_pass': 1,
+    }
+    invalid_photo_data = {
+        'img': 'media/11111_3LVM9F2.jpg',
     }
