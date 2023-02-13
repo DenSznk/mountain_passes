@@ -2,7 +2,7 @@ from django.db import models
 from mptt.models import MPTTModel
 
 from mountain_pass.resources import MountainPassStatuses
-from users.models import User
+from core.models import User
 
 
 class Area(MPTTModel):
